@@ -6,8 +6,9 @@ Geometry:
     Width (Y): 10.0
     
 Mesh:
-    Number of Elements in X: 10
-    Number of Elements in Y: 10
+	Plate:
+		Number of Elements in X: 10
+		Number of Elements in Y: 10
 
 Materials:
     Plate:
@@ -19,21 +20,24 @@ Materials:
 Boundary Conditions:
     Top:
       Models: Heat Transfer
-      Initial Temperature: 293
+		Type: Fixed Temperature
+			Initial Temperature: 293
     Bottom:
       Models: Heat Transfer
-      Initial Temperature: 293
+		Type: Fixed Temperature
+			Initial Temperature: 293
     Left:
       Models: Heat Transfer
-      Initial Temperature: 293
+		Type: Fixed Temperature
+			Initial Temperature: 293
     Right:
       Models: Heat Transfer
-      Initial Temperature: 293
+		Type: Fixed Temperature
+			Initial Temperature: 293
     
 Simulation:
   Time Step: 0.0002
   Number Time Steps: 30001
-  
 
 Plot:
   Temp Output Folder: "./output/Temperature/"

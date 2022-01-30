@@ -3,10 +3,10 @@ Problem Type:
     Total Plates: 1
     Length: 0.1
 Domains:
-    Plate 1:
+    Part 1:
         Geometry:
-            y0: 0.004
-            y1: 0.006
+            y0: 0.0
+            y1: 0.1
             x0: 0
             x1: 0.1           
         Material: 
@@ -18,33 +18,41 @@ Domains:
                 A: 0.0056
                 Ea: 74400
         Mesh:
-            Points in X: 100
-            Points in Y: 80
-        Boundary Condition:  
+            Points in X: 20
+            Points in Y: 20
+        Boundary Condition: 
             Thermal:
-                Convection:
-                    Left Edge: 
-                        Room Temperature: 0
-                        Convection Coefficient: 0
-                    Right Edge:
-                        Room Temperature: 0
-                        Convection Coefficient: 0
-                Fixed Temperature:
-                    Bottom Edge:
-                        Temperature: 0
-                    Top Edge: 
-                        Temperature: 0
-            Mechanical:
-                Intimate Contact:
-                    Top Edge:
-                        Horizontal asperity ratio: 2
-                        Vertical asperity ratio: 2
-                    Bottom Edge:
-                        Horizontal asperity ratio: 2
-                        Vertical asperity ratio: 2
+                Top:
+                    Fixed Temperature:
+                        Temperature: 300
+                Bottom: 
+                    Fixed Temperature:
+                        Temperature: 300
+                Left: 
+                    Convection:
+                        Initial Temperature: 500
+                        External Temperature: 295
+                        HTC: 50
+                Right: 
+                    Convection:
+                        Initial Temperature: 500
+                        External Temperature: 295
+                        HTC: 50
         Initial Condition:
-            Temperature: 293
-            Power Generation: 200
+            Temperature: 500
+            Internal Heat Generation: 200
 Simulation:
-    Step Time: 0.0005
-    Number of Steps: 10000
+    Step Time: 0.05
+    Number of Steps: 1000
+Plot:
+  Temp Output Folder: "./output/Temperature/"
+  Dic Output Folder: "./output/Dic/"
+  figure temperature name: Temperature
+  figure dic name: Dic
+  Color Interpolation: 50
+  Color Map: "inferno"
+  plot interval: 5
+  
+Animation:
+    Temperature name: temperature
+    Dic name: Dic

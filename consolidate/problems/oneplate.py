@@ -1,4 +1,3 @@
-from .domains import RectangularDomain
 # from .boundaryconditions import LinearBC
 
 class OnePlate:
@@ -23,11 +22,11 @@ class OnePlate:
     def set_boundaryconds(self, deck):
         self.boundaryconditions = []
         for deck_BC in deck.doc["Boundary Conditions"]:
-            if deck_BC == "Top":
+            if deck_BC == "TOP":
                 self.boundaryconditions.append( LinearBC( (0.,self.Ly), (self.Lx,self.Ly), deck.doc["Boundary Conditions"][deck_BC] ) )
-            elif deck_BC == "Bottom":
+            elif deck_BC == "BOTTOM":
                 self.boundaryconditions.append( LinearBC( (0.,0.), (self.Lx, 0.), deck.doc["Boundary Conditions"][deck_BC] ) )
-            elif deck_BC == "Left":
+            elif deck_BC == "LEFT":
                 self.boundaryconditions.append( LinearBC( (0.,0.), (0.,self.Ly), deck.doc["Boundary Conditions"][deck_BC] ) )
-            elif deck_BC == "Right":
+            elif deck_BC == "RIGHT":
                 self.boundaryconditions.append( LinearBC( (self.Lx,0.), (self.Lx,self.Ly), deck.doc["Boundary Conditions"][deck_BC] ) )

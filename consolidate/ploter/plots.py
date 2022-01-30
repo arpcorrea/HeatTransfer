@@ -14,6 +14,8 @@ import numpy as np
 class Plot():
     
     def __init__(self, problem, mesh, deck):
+        field = mesh.global_fields
+        # import pdb; pdb.set_trace()
         self.deck = deck
         self.nsteps =  int(problem.SimulationParameters["Number of Steps"])
         self.timestep = float(problem.SimulationParameters["Step Time"])
@@ -22,7 +24,7 @@ class Plot():
         # fields ={}
         # for aux in mesh.fields:
         #     fields[aux.name]= aux.value
-        self.T = mesh.fields["Temperature"]
+        self.T = field["Temperature"]
         self.set_plots()
 
 
@@ -52,8 +54,8 @@ class Plot():
                 print(m, self.fignum)
                 # plt.figure( figsize=(8, 6), dpi=280)
                 plt.gcf().set_size_inches(16, 8)
-                plt.gcf().set_dpi(80)                
-                plt.pcolormesh(self.mesh.position["X"], self.mesh.position["Y"], self.T, vmin=100, vmax=700,cmap=self.deck.doc["Plot"]["Color Map"])
+                plt.gcf().set_dpi(80)        
+                plt.pcolormesh(self.mesh.position["X"], self.mesh.position["Y"], self.T, vmin=290, vmax=500,cmap=self.deck.doc["Plot"]["Color Map"])
                 plt.colorbar()
                 self.fig.suptitle('time: {:.2f}'.format( m*self.timestep), fontsize=16)
                 plt.savefig(self.deck.plot_dirTemp+self.deck.doc["Plot"]["figure temperature name"]+ str("%03d" %self.fignum) + '.jpg')

@@ -1,0 +1,49 @@
+Problem Type:
+    Type: TwoPlates
+
+Geometry:
+    Length (Y): 20.0
+    Width (X): 10.0
+    
+Mesh:
+    Top Plate:
+      Number of Elements in X: 10
+      Number of Elements in Y: 10
+    Bottom Plate:
+      Number of Elements in X: 10
+      Number of Elements in Y: 10
+
+Materials:
+    Bottom Plate:
+        Thermal Conductivity X: 0.65
+        Thermal Conductivity Y: 0.65
+        Density: 1598
+        Specific Heat Capacity: 930
+    Top Plate:
+        Thermal Conductivity X: 0.65
+        Thermal Conductivity Y: 0.65
+        Density: 1598
+        Specific Heat Capacity: 930   
+
+Boundary Conditions:
+    Top Plate Top:
+      Models: Heat
+      Initial Temperature: 293
+    Top Plate Left:
+      Models: Heat
+      Initial Temperature: 293
+    Top Plate Right:
+      Models: Heat
+      Initial Temperature: 293
+    Bottom Plate Left:
+      Models: Heat
+      Initial Temperature: 293
+    Bottom Plate Right:
+      Models: Heat
+      Initial Temperature: 293
+    Bottom Plate Bottom:
+      Models: Heat
+      Initial Temperature: 293
+    Weld Line:
+      Models: Heat
+      Initial Temperature: 293

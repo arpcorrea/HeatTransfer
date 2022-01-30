@@ -1,0 +1,145 @@
+Problem Type:
+    Type: Heat Transfer
+    Total Plates: 3
+    Length: 0.1
+Domains:
+    Part 1:
+        Geometry:
+            y0: 0
+            y1: 0.004
+            x0: 0
+            x1: 0.1
+        Material Properties: 
+            Density: 1600            
+            Thermal:
+                kx: 0.658
+                ky: 0.658
+                Cp: 930
+            Viscosity:
+                Tg: 450
+                A: 1.14e-12
+                Ea: 26300
+        Mesh:
+            Points in X: 101
+            Points in Y: 22
+        Boundary Condition:
+            Thermal:
+                Fixed Boundary:
+                    Bottom Edge:
+                        Temperature: 25
+                    Left Edge:
+                        Temperature: 25
+                    Right Edge:
+                        Temperature: 25
+        Initial Condition:
+            Temperature: 30
+    Interface 1:
+        Initial Condition:
+            Temperature: 1000
+            Roughness:
+                Horizontal asperity ratio: 4
+                Vertical asperity ratio: 4
+        Boundary Condition:
+            Thermal:
+                Fixed Boundary:
+                    Left Edge:
+                        Temperature: 25
+                    Right Edge:
+                        Temperature: 25
+    Part 2:
+        Geometry:
+            y0: 0.004
+            y1: 0.006
+            x0: 0
+            x1: 0.1           
+        Material Properties:
+            Density: 7875
+            Thermal:
+                kx: 27.54
+                ky: 27.54
+                Cp: 515
+            Viscosity:
+                Tg: 450
+                A: 1.14e-12
+                Ea: 26300
+        Mesh:
+            Points in X: 101
+            Points in Y: 12
+        Boundary Condition:  
+            Thermal:
+                Fixed Boundary:
+                    Left Edge: 
+                        Temperature: 25
+                    Right Edge:
+                        Temperature: 25
+            Mechanical:
+                Intimate Contact:
+                    Top Edge:
+                        Horizontal asperity ratio: 2
+                        Vertical asperity ratio: 2
+                    Bottom Edge:
+                        Horizontal asperity ratio: 2
+                        Vertical asperity ratio: 2
+        Initial Condition:
+            Temperature: 1000
+            Power Input:
+                All: 0
+    Interface 2:
+        Initial Condition:
+            Temperature: 1000
+            Roughness:
+                Horizontal asperity ratio: 4
+                Vertical asperity ratio: 4
+        Boundary Condition:
+            Thermal:
+                Fixed Boundary:
+                    Left Edge:
+                        Temperature: 25
+                    Right Edge:
+                        Temperature: 25
+    Part 3:
+        Geometry:
+            y0: 0.006
+            y1: 0.010
+            x0: 0
+            x1: 0.1
+        Material Properties:
+            Density: 1600           
+            Thermal:
+                kx: 0.658
+                ky: 0.658
+                Cp: 930
+            Viscosity:
+                Tg: 450
+                A: 1.14e-12
+                Ea: 26300
+        Mesh:
+            Points in X: 101
+            Points in Y: 22
+        Boundary Condition:
+            Thermal:
+                Fixed Boundary:
+                    Right Edge:
+                        Temperature: 25
+                    Top Edge:
+                        Temperature: 25
+                    Left Edge:
+                        Temperature: 25
+            Mechanical:
+                Intimate Contact:
+                    Bottom Edge:                    
+                        Horizontal asperity ratio: 1
+                        Vertical asperity ratio: 1
+        Initial Condition: 
+            Temperature: 30
+Simulation:
+    Step Time: 0.0005
+    Number of Steps: 40000
+Plot:
+    Temp Output Folder: "./output/Temperature/"
+    Dic Output Folder: "./output/Dic/"
+    figure temperature name: Temperature
+    figure dic name: Dic
+    Color Interpolation: 50
+    Color Map: "inferno"
+    plot interval: 1000
